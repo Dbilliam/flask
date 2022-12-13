@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Cart List</h1>
+{% for book in books %}
+<h3>{{ book["id"] }} :{{ book["title"] }} <a href="/discart">Delete Cart</a></h3>
+{% endfor %}
+{% endblock %}

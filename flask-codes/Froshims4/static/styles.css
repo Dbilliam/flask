@@ -1,0 +1,30 @@
+body{
+    background-color: cornflowerblue;
+}
+
+p {
+    size: 2px;
+    font-style: normal;
+    color: olivedrab;
+}
+
+table{
+    table-layout: 2;
+    font-size: 20px;
+    color: antiquewhite;
+}
+thead{
+    color: brown;
+}
+th{
+    letter-spacing: 2px;
+    color: rgb(16, 0, 16);
+}
+tbody{
+    color: rgb(85, 4, 0);
+    font-size: 19px;
+}
+
+td{
+    letter-spacing: 2px;
+}

@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="opening">
+  <h1 class="header1">Welcome </h1>
+  <hr />
+</div>
+<br />
+
+{% if current_user.is_authenticated %}
+<div class="form-floating">
+  <form method="POST" autocomplete="off" action="">
+    {{ form.hidden_tag() }}
+    <!-- with rows="5" its say TextArea Size -->
+    {{ form.content.label (class="form-label")}}
+    {{ form.content(class="form-control", rows="5")}}
+    <button class="btn btn-dark button" type="submit">Post</button>
+  </form>
+  {{ ckeditor.load() }}
+  {{ ckeditor.config(name='content') }}
+
+  {% else %}
+  <h2>Must Be Logged In...</h2>
+  <p>sorry, you must be logged in to access this page!</p>
+  <a href="{{ url_for('login')}}">Login Here</a>
+  {% endif %}
+
+
+</div>
+
+<div class="break">
+  <hr />
+</div>
+<br />
+<div id="posts-reload">
+  {% for post in posts %}
+  <div class="card text-center post-container">
+    <h3>{{post.title}}</h3>
+    <div class="card-header post-title">
+      @{{post.username}} &nbsp;
+      &nbsp; <a href="/profile/{{post.username}}" class="btn btn-primary profile-btn">View Profile</a>
+    </div>
+    <div class="card-body">
+      <!-- <p class="card-title post-text">"{{post.deets}}"</p> -->
+      <p class="card-title post-text">{{post.content|safe|truncate(100, true)}}</p>
+      <br>
+      <p class="card-text time">
+        {{(post.date_posted - correct_time).strftime('%m-%d, %I:%M %p')}}
+      </p>
+      <!-- <a href="{{ url_for('blogs',id=post.id)}}" class="btn">read more</a> -->
+
+
+      <br />
+      <div id="form-reload-{{post.id}}">
+        <form onsubmit="return addComment(post.id)" id="comment-form-{{post.id}}" method="POST"
+          action="/add-comment/{{post.id}}" autocomplete="off">
+          <label for="Comment"></label>
+          <div class="comment-container">
+            <i class="fa-solid fa fa-comment-dots fa-lg"></i>
+            <input name="comment" type="text" id="comment-{{post.id}}" class="comment" placeholder="Add a comment" />
+
+            <button type="submit" id="comment-button-{{post.id}}" class="comment-button">Comment</button>
+
+        </form>
+      </div>
+      <div id="options-{{post.id}}">
+        {%if post.comments %}
+        <div class="btn-group dropup comments-section" id="comment-section-{{post.id}}">
+
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {% if post.comments|length > 1%} View {{post.comments|length}}
+            comments {%else%} View {{post.comments|length}} comment {%endif%}
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-dark">
+            {%for comment in post.comments%}
+
+            <li class="comment-text" id="comment-text-{{comment.id}}">
+              {{comment.user.username | title}}: &nbsp;{{comment.text}} &nbsp;&nbsp;&nbsp;
+              {%if user.id == comment.author or user.id == post.author%}
+
+              <button type="button" onclick="deleteComment(comment.id)" id="deleteCom-{{comment.id}}"
+                class="btn btn-danger btn-sm delete-comment">&#x2715;</button>
+
+              {%endif%}
+              &nbsp;&nbsp;&nbsp;
+            </li>
+            <br>
+
+
+
+            {%endfor%}
+          </ul>
+
+
+        </div>
+
+        {%else%}
+        <div id="no-comments-{{post.id}}">
+          <button type="button" id="blank-comment-section" class="btn btn-secondary" style="float: right;" disabled>
+            No comments available
+          </button>
+        </div>
+        {%endif%}
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+  <div class="card-footer ">
+
+    {% set postid = post.id %}
+    {% if user.id in post.likes | map(attribute='author')|list %}
+    <i style="float: left; text-decoration: none; margin-top: 3px; margin-bottom: -1px;" id="like-button-{{post.id}}"
+      class="fa fa-thumbs-up fa-2x like-btn" onclick='like({{postid}})'>&nbsp;&nbsp; </i><span
+      id="like-count-{{post.id}}" class="like-count"> {{post.likes|length}}</span>
+    {%else%}
+    <i style="float: left; text-decoration: none; margin-top: 3px; margin-bottom: -1px;"
+      class="fa fa-thumbs-up fa-2x like-btn" id="like-button-{{post.id}}" onclick="like({{postid}})">&nbsp;&nbsp;
+    </i><span id="like-count-{{post.id}}" class="like-count">{{post.likes|length}}</span>
+    {%endif%}
+
+    {%if user.id == post.author%}
+    <span class="delete-container" id="del-button" onclick="deletePost({{postid}})">
+      <button class="btn btn-danger delete-btn">Delete Post</button></span>
+    {%endif%}
+  </div>
+</div>
+{%endfor%}
+</div>
+
+
+
+
+
+{% endblock %}

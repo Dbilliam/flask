@@ -1,0 +1,506 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Page Title-->
+        <h2 class="fs-3 fw-bold mb-2">Welcome back, Admin👋</h2>
+        <p class="text-muted mb-5">Get a quick overview of your company's current status below, or click into one of the
+            sections for a more detailed breakdown.</p>
+        <!-- / Page Title-->
+
+        <!-- Top Row Widgets-->
+        <div class="row g-4">
+
+            <!-- Number Orders Widget-->
+            <div class="col-12 col-sm-6 col-xxl-3">
+                <div class="card h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex border-0 pb-0">
+                        <h6 class="card-title m-0 text-muted fs-xs text-uppercase fw-bolder tracking-wide">Monthly
+                            Income</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gx-4 mb-3 mb-md-1">
+                            <div class="col-12 col-md-6">
+                                <p class="fs-3 fw-bold d-flex align-items-center"><span class="fs-9 me-1">$</span>
+                                    567,99</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartMonthlyIncome"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span
+                                class="f-w-7 f-h-7 p-2 bg-success-faded text-success rounded-circle d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-100">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="fw-bold text-success fs-9 ms-2">+ 10.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Number Orders Widget-->
+
+            <!-- Average Orders Widget-->
+            <div class="col-12 col-sm-6 col-xxl-3">
+                <div class="card h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex border-0 pb-0">
+                        <h6 class="card-title m-0 text-muted fs-xs text-uppercase fw-bolder tracking-wide">Average Order
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gx-4 mb-3 mb-md-1">
+                            <div class="col-12 col-md-6">
+                                <p class="fs-3 fw-bold d-flex align-items-center"><span class="fs-9 me-1">$</span>
+                                    193,99</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartAvgOrders"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span
+                                class="f-w-7 f-h-7 p-2 bg-danger-faded text-danger rounded-circle d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-100">
+                                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    <polyline points="17 18 23 18 23 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="fw-bold text-danger fs-9 ms-2">- 23.5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Average Orders Widget-->
+
+            <!-- Pageviews Widget-->
+            <div class="col-12 col-sm-6 col-xxl-3">
+                <div class="card h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex border-0 pb-0">
+                        <h6 class="card-title m-0 text-muted fs-xs text-uppercase fw-bolder tracking-wide">Daily
+                            Pageviews</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gx-4 mb-3 mb-md-1">
+                            <div class="col-12 col-md-6">
+                                <p class="fs-3 fw-bold">95,456</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartPageviews"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span
+                                class="f-w-7 f-h-7 p-2 bg-success-faded text-success rounded-circle d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-100">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="fw-bold text-success fs-9 ms-2">+ 1.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Pageviews Widget-->
+
+            <!-- Number Refunds Widget-->
+            <div class="col-12 col-sm-6 col-xxl-3">
+                <div class="card h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex border-0 pb-0">
+                        <h6 class="card-title m-0 text-muted fs-xs text-uppercase fw-bolder tracking-wide">Refund Issued
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gx-4 mb-3 mb-md-1">
+                            <div class="col-12 col-md-6">
+                                <p class="fs-3 fw-bold d-flex align-items-center"><span class="fs-9 me-1">$</span>
+                                    12,340</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartNumRefunds"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span
+                                class="f-w-7 f-h-7 p-2 bg-success-faded text-success rounded-circle d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-100">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="fw-bold text-success fs-9 ms-2">+ 7.5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Number Refunds Widget-->
+
+
+
+            <!-- Monthly Expenses-->
+            <div class="col-12 col-lg-4">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Monthly expenses</h6>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                id="dropdownExpenses" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ri-more-2-line"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown" aria-labelledby="dropdownExpenses">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart chart-lg">
+                            <canvas id="chartDoughnut"></canvas>
+                        </div>
+
+                        <div class="row g-1 mt-4">
+
+                            <div class="col-12 col-sm-4 d-flex flex-column align-items-center">
+                                <p class="fw-bolder mb-1">$1,456</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-w-2 f-h-2 bg-secondary-faded d-block rounded-circle me-2"></span>
+                                    <span class="small text-muted">Rent</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 d-flex flex-column align-items-center">
+                                <p class="fw-bolder mb-1">$12,325</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-w-2 f-h-2 bg-primary d-block rounded-circle me-2"></span>
+                                    <span class="small text-muted">Salaries</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 d-flex flex-column align-items-center">
+                                <p class="fw-bolder mb-1">$14,899</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-w-2 f-h-2 bg-warning d-block rounded-circle me-2"></span>
+                                    <span class="small text-muted">Marketing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn btn-light d-table mx-auto mt-4">View full expenses</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Monthly Expenses-->
+
+            <!-- Yearly Income-->
+            <div class="col-12 col-lg-8">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Yearly income</h6>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                id="dropdownYearly" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ri-more-2-line"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown" aria-labelledby="dropdownYearly">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <div class="d-flex align-items-center">
+                                <h4 class="fs-3 fw-bold mb-0 me-3">$145,778</h4>
+                                <span class="badge bg-success-faded text-success d-flex align-items-center ">
+                                    <span class="f-w-4 d-block me-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="w-100">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                    </span>
+                                    + 35%
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <span class="f-w-4 rounded f-h-1 bg-primary d-block me-2"></span>
+                                    <span class="small text-muted">2021</span>
+                                </div>
+                                <div class="d-flex align-items-center ms-4">
+                                    <span class="f-w-4 rounded f-h-1 bg-secondary-faded d-block me-2"></span>
+                                    <span class="small text-muted">2020</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart">
+                            <div class="chart chart-lg">
+                                <canvas id="chartLine"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Yearly Income-->
+
+            <!-- Latest Orders-->
+            <div class="col-12">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Latest Booking</h6>
+                        <a href="#" class="btn btn-outline-secondary btn-sm text-body"><i
+                                class="ri-download-2-line align-middle"></i> Export</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table m-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Billing Name</th>
+                                        <th>Date</th>
+                                        <th>Payment Method</th>
+                                        <th>Items</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1234-5679</span>
+                                        </td>
+                                        <td>Patria Nelson</td>
+                                        <td class="text-muted">24th June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-visa-line ri-lg me-2"></i> **** 6789
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span
+                                                class="badge rounded-pill bg-success-faded text-success">completed</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-0" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1235-7755</span>
+                                        </td>
+                                        <td>Dominic Patterson</td>
+                                        <td class="text-muted">22nd June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-mastercard-fill ri-lg me-2"></i> **** 1233
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span class="badge rounded-pill bg-info-faded text-info">processing</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-1">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1236-6579</span>
+                                        </td>
+                                        <td>Steven Smith</td>
+                                        <td class="text-muted">21st June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-paypal-line ri-lg me-2"></i> **** 7766
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span
+                                                class="badge rounded-pill bg-danger-faded text-danger">cancelled</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-2" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-2">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1237-1122</span>
+                                        </td>
+                                        <td>Courtney Lawes</td>
+                                        <td class="text-muted">19th June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-mastercard-fill ri-lg me-2"></i> **** 9087
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span
+                                                class="badge rounded-pill bg-success-faded text-success">completed</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-3" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-3">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1238-4433</span>
+                                        </td>
+                                        <td>Haley Jackson</td>
+                                        <td class="text-muted">19th June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-visa-line ri-lg me-2"></i> **** 6789
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span
+                                                class="badge rounded-pill bg-success-faded text-success">completed</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-4" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-4">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bolder">#1239-8865</span>
+                                        </td>
+                                        <td>Sairaj Tackoo</td>
+                                        <td class="text-muted">18th June, 2021</td>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ri-mastercard-fill ri-lg me-2"></i> **** 1233
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">5</td>
+                                        <th class="text-muted">$123.99</th>
+                                        <td><span class="badge rounded-pill bg-info-faded text-info">processing</span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button
+                                                    class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0"
+                                                    type="button" id="dropdownOrder-5" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-5">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav>
+                            <ul class="pagination justify-content-end mt-3 mb-0">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Latest Orders-->
+
+            {% endblock %}

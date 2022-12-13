@@ -1,0 +1,3 @@
+Flash Intro 
+
+Flash is a micro web framwork witten in python. it is classified as a microframework because it does not require particular tool or libraries
